@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Vitrinova</string>
+    <string name="fast_shipment">FAST SHIPMENT</string>
+    <string name="discover_search_hint">Search</string>
+    <string name="no_internet">No internet connection!</string>
+    <string name="see_more">See more</string>
+    <string name="go_to_showcase">Go to showcase</string>
+</resources>

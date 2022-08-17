@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/discoverFragment">
+
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.ns.vitrinova.ui.discover.DiscoverFragment"
+        android:label="DiscoverFragment" >
+        <action
+            android:id="@+id/action_discoverFragment_to_shopsDetailFragment"
+            app:destination="@id/shopsDetailFragment" />
+        <action
+            android:id="@+id/action_discoverFragment_to_productsDetailFragment"
+            app:destination="@id/productsDetailFragment" />
+        <action
+            android:id="@+id/action_discoverFragment_to_collectionsDetailFragment"
+            app:destination="@id/collectionsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopsDetailFragment"
+        android:name="com.ns.vitrinova.ui.shops_detail.ShopsDetailFragment"
+        android:label="ShopsDetailFragment" >
+        <action
+            android:id="@+id/action_shopsDetailFragment_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectionsDetailFragment"
+        android:name="com.ns.vitrinova.ui.collection_detail.CollectionsDetailFragment"
+        android:label="CollectionsDetailFragment" >
+        <action
+            android:id="@+id/action_collectionsDetailFragment_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsDetailFragment"
+        android:name="com.ns.vitrinova.ui.products_detail.ProductsDetailFragment"
+        android:label="ProductsDetailFragment" >
+        <action
+            android:id="@+id/action_productsDetailFragment_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
+    </fragment>
+</navigation>
