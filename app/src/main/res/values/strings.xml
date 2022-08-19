@@ -5,4 +5,8 @@
     <string name="no_internet">No internet connection!</string>
     <string name="see_more">See more</string>
     <string name="go_to_showcase">Go to showcase</string>
+    <string name="new_sellers">"Today's products"</string>
+    <string name="categories">Categorıes</string>
+    <string name="collections">Collectıons</string>
+    <string name="editors_choice">Edıtor\'s Choıce</string>
 </resources>

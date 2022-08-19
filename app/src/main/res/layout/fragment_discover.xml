@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:clickable="true"
     android:focusable="true"
-    tools:context=".ui.discover.DiscoverFragment">
+    tools:context=".ui.main.discover.DiscoverFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -99,7 +99,7 @@
                     android:id="@+id/labelNewProducts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:textAllCaps="true"
                     android:textColor="@color/titleColor"
@@ -111,7 +111,7 @@
                     android:id="@+id/btnAllProducts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingHorizontal="8dp"
@@ -122,7 +122,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/see_more"
+                        android:text="TÜMÜ"
                         android:textAllCaps="true"
                         android:textColor="@color/titleColor"
                         android:textSize="14sp"
@@ -132,7 +132,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginLeft="4dp"
                         android:src="@drawable/ic_forward" />
                 </LinearLayout>
 
@@ -158,7 +158,7 @@
                         android:id="@+id/labelCategories"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
                         android:textAllCaps="true"
                         android:textColor="@color/titleColor"
                         android:textSize="14sp"
@@ -179,7 +179,7 @@
                     android:id="@+id/labelCollections"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:textAllCaps="true"
                     android:textColor="@color/titleColor"
@@ -191,7 +191,7 @@
                     android:id="@+id/btnAllCollections"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingHorizontal="8dp"
@@ -202,7 +202,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/see_more"
+                        android:text="TÜMÜ"
                         android:textAllCaps="true"
                         android:textColor="@color/titleColor"
                         android:textSize="14sp"
@@ -212,7 +212,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginLeft="4dp"
                         android:src="@drawable/ic_forward" />
                 </LinearLayout>
 
@@ -244,7 +244,7 @@
                         android:id="@+id/labelEditorShops"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
                         android:layout_marginTop="12dp"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
@@ -256,7 +256,7 @@
                         android:id="@+id/btnEditorShops"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingHorizontal="8dp"
@@ -267,7 +267,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/see_more"
+                            android:text="TÜMÜ"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
                             android:textSize="14sp"
@@ -277,7 +277,7 @@
                         <ImageView
                             android:layout_width="16dp"
                             android:layout_height="16dp"
-                            android:layout_marginStart="4dp"
+                            android:layout_marginLeft="4dp"
                             android:src="@drawable/ic_forward_white" />
                     </LinearLayout>
 
@@ -297,7 +297,7 @@
                     android:id="@+id/labelNewShops"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:textAllCaps="true"
                     android:textColor="@color/titleColor"
@@ -309,7 +309,7 @@
                     android:id="@+id/btnAllNewShops"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingHorizontal="8dp"
@@ -320,7 +320,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/see_more"
+                        android:text="TÜMÜ"
                         android:textAllCaps="true"
                         android:textColor="@color/titleColor"
                         android:textSize="14sp"
@@ -330,7 +330,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginLeft="4dp"
                         android:src="@drawable/ic_forward" />
                 </LinearLayout>
 

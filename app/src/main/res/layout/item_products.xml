@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imgProduct"
+            android:id="@+id/ivProduct"
             android:layout_width="match_parent"
             android:layout_height="156dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
             android:maxLines="1"
             android:textColor="@color/titleColor"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/imgProduct" />
+            app:layout_constraintTop_toBottomOf="@id/ivProduct" />
 
         <TextView
             android:id="@+id/textShop"
