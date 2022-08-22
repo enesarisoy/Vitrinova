@@ -3,7 +3,6 @@ package com.ns.vitrinova.ui.discover
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import android.widget.Adapter
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -14,6 +13,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.ns.vitrinova.R
 import com.ns.vitrinova.data.model.*
 import com.ns.vitrinova.databinding.FragmentDiscoverBinding
+import com.ns.vitrinova.ui.MainViewModel
 import com.ns.vitrinova.ui.base.BaseFragment
 import com.ns.vitrinova.ui.custom.FeaturedViewPagerTransformer
 import com.ns.vitrinova.ui.discover.adapter.*
@@ -26,8 +26,7 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
     FragmentDiscoverBinding::inflate
 ) {
 
-    private val TAG = "DiscoverFragment"
-    private val viewModel: DiscoverViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
     private var scrollIsIdle: Boolean = false
     private lateinit var productsAdapter: ProductsAdapter
     private lateinit var categoriesAdapter: CategoriesAdapter
@@ -102,8 +101,8 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
     private fun initProducts(products: List<Product>) {
         binding.apply {
             productsAdapter = ProductsAdapter()
-            recyclerViewProducts.adapter = productsAdapter
-            recyclerViewProducts.layoutManager =
+            rvProducts.adapter = productsAdapter
+            rvProducts.layoutManager =
                 LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         }
 
@@ -114,8 +113,8 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
     private fun initCategories(categories: List<Category>) {
         binding.run {
             categoriesAdapter = CategoriesAdapter()
-            recyclerViewCategories.adapter = categoriesAdapter
-            recyclerViewCategories.layoutManager =
+            rvCategories.adapter = categoriesAdapter
+            rvCategories.layoutManager =
                 LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         }
 
@@ -125,8 +124,8 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
     private fun initCollections(collections: List<Collections>) {
         binding.run {
             collectionsAdapter = CollectionsAdapter()
-            recyclerViewCollections.adapter = collectionsAdapter
-            recyclerViewCollections.layoutManager =
+            rvCollections.adapter = collectionsAdapter
+            rvCollections.layoutManager =
                 LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         }
 
@@ -158,20 +157,20 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
     private fun initEditorShops(shops: List<Shop>) {
         binding.run {
             shopsAdapter = ShopsAdapter()
-            recyclerViewEditorShops.adapter = shopsAdapter
-            recyclerViewEditorShops.layoutManager =
+            rvEditorShops.adapter = shopsAdapter
+            rvEditorShops.layoutManager =
                 LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         }
 
         shopsAdapter.differ.submitList(shops)
 
         val snapHelper = GravitySnapHelper(Gravity.START)
-        snapHelper.attachToRecyclerView(binding.recyclerViewEditorShops)
+        snapHelper.attachToRecyclerView(binding.rvEditorShops)
         shops[0].cover?.let { cover ->
-            binding.imgEditorBackground.downloadImage(cover.url)
+            binding.ivEditorBackground.downloadImage(cover.url)
         }
 
-        binding.recyclerViewEditorShops.addOnScrollListener(object :
+        binding.rvEditorShops.addOnScrollListener(object :
             RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
@@ -181,12 +180,12 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 if (scrollIsIdle) {
-                    binding.recyclerViewEditorShops.layoutManager?.let { manager ->
+                    binding.rvEditorShops.layoutManager?.let { manager ->
                         val snapView = snapHelper.findSnapView(manager)
                         val snapPosition = snapView?.let { snap -> manager.getPosition(snap) }
                         snapPosition?.let { position ->
                             shops[position].cover?.let { cover ->
-                                binding.imgEditorBackground.downloadImage(cover.url)
+                                binding.ivEditorBackground.downloadImage(cover.url)
                             }
                         }
                     }

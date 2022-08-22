@@ -2,7 +2,6 @@ package com.ns.vitrinova.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import com.ns.vitrinova.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

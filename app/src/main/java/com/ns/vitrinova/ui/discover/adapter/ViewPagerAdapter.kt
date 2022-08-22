@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ns.vitrinova.R
 import com.ns.vitrinova.data.model.Featured
 import com.ns.vitrinova.databinding.ItemFeaturedBinding
 import com.ns.vitrinova.utils.downloadImage
@@ -16,9 +15,9 @@ class ViewPagerAdapter : RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHold
 
         fun bind(featured: Featured) {
             binding.run {
-                imgFeatured.downloadImage(featured.cover.thumbnail.url)
-                textTitle.text = featured.title
-                textSubtitle.text = featured.sub_title
+                ivFeatured.downloadImage(featured.cover.thumbnail.url)
+                tvTitle.text = featured.title
+                tvSubtitle.text = featured.sub_title
             }
         }
 

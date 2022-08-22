@@ -1,8 +1,6 @@
 package com.ns.vitrinova.ui.new_shops
 
-import android.graphics.Paint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -11,11 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ns.vitrinova.R
 import com.ns.vitrinova.data.model.Shop
 import com.ns.vitrinova.databinding.ItemNewShopsBinding
-import com.ns.vitrinova.databinding.ItemShopDetailBinding
 import com.ns.vitrinova.utils.downloadImage
 
 
-class NewShopsAdapter() : RecyclerView.Adapter<NewShopsAdapter.NewShopViewHolder>() {
+class NewShopsAdapter : RecyclerView.Adapter<NewShopsAdapter.NewShopViewHolder>() {
     inner class NewShopViewHolder(private val binding: ItemNewShopsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -25,14 +22,14 @@ class NewShopsAdapter() : RecyclerView.Adapter<NewShopsAdapter.NewShopViewHolder
 
             binding.run {
                 shop.logo?.let {
-                    imgLogo.downloadImage(it.url)
+                    ivLogo.downloadImage(it.url)
                 }
                 shop.cover?.let {
-                    imgShop.downloadImage(it.url)
+                    ivShop.downloadImage(it.url)
                 }
-                textTitle.text = shop.name
-                textDescription.text = shop.definition
-                textProductCount.text = "${shop.product_count} ÜRÜN"
+                tvTitle.text = shop.name
+                tvDescription.text = shop.definition
+                tvProductCount.text = itemView.context.getString(R.string.product_count)
             }
         }
 

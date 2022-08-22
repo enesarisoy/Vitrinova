@@ -21,15 +21,15 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
             itemView.animation =
                 AnimationUtils.loadAnimation(itemView.context, R.anim.anim_horizontal_recyclerview)
             binding.run {
-                textTitle.text = product.title
+                tvTitle.text = product.title
                 ivProduct.downloadImage(product.images[0].url)
-                textShop.text = product.shop.name
-                textPrice.text = product.price.toString()
+                tvShop.text = product.shop.name
+                tvPrice.text = product.price.toString()
                 product.old_price?.let {
-                    textOldPrice.run {
+                    tvOldPrice.run {
                         visibility = View.VISIBLE
-                        text = "$it TL"
-                        paintFlags = textOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                        text = itemView.context.getText(R.string.old_price)
+                        paintFlags = tvPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     }
                 }
             }

@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ns.vitrinova.data.model.Category
-import com.ns.vitrinova.data.model.Product
 import com.ns.vitrinova.databinding.ItemCategoriesBinding
-import com.ns.vitrinova.databinding.ItemProductsBinding
 import com.ns.vitrinova.utils.downloadImage
 
 class CategoriesAdapter() : RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder>() {
@@ -17,8 +15,8 @@ class CategoriesAdapter() : RecyclerView.Adapter<CategoriesAdapter.CategoriesVie
 
         fun bind(category: Category) {
             binding.run {
-                imgCategory.downloadImage(category.cover.url)
-                textCategory.text = category.name
+                ivCategory.downloadImage(category.cover.url)
+                tvCategory.text = category.name
             }
         }
 

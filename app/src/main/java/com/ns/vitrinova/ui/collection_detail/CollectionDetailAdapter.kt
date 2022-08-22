@@ -1,8 +1,6 @@
 package com.ns.vitrinova.ui.collection_detail
 
-import android.graphics.Paint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -24,9 +22,9 @@ class CollectionDetailAdapter() :
                 AnimationUtils.loadAnimation(itemView.context, R.anim.anim_vertical_recyclerview)
 
             binding.run {
-                imgCollection.downloadImage(collections.cover.url)
-                textTitle.text = collections.title
-                textDefinition.text = collections.definition
+                ivCollection.downloadImage(collections.cover.url)
+                tvTitle.text = collections.title
+                tvDefinition.text = collections.definition
             }
         }
 

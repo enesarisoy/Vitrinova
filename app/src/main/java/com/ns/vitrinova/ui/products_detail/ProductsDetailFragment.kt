@@ -2,25 +2,22 @@ package com.ns.vitrinova.ui.products_detail
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ns.vitrinova.R
 import com.ns.vitrinova.data.model.Product
 import com.ns.vitrinova.databinding.FragmentProductDetailBinding
 import com.ns.vitrinova.ui.MainActivity
 import com.ns.vitrinova.ui.base.BaseFragment
-import com.ns.vitrinova.ui.discover.DiscoverViewModel
-import com.ns.vitrinova.ui.discover.adapter.ProductsAdapter
+import com.ns.vitrinova.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProductsDetailFragment() : BaseFragment<FragmentProductDetailBinding>(
+class ProductsDetailFragment : BaseFragment<FragmentProductDetailBinding>(
     FragmentProductDetailBinding::inflate
 ) {
 
-    private val viewModel: DiscoverViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var productsDetailAdapter: ProductsDetailAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +42,7 @@ class ProductsDetailFragment() : BaseFragment<FragmentProductDetailBinding>(
         viewModel.postContent.observe(requireActivity()) {
             it.let {
                 binding.run {
-                    textTitle.text = it[1].title
+                    tvTitle.text = it[1].title
 
                 }
                 initProducts(it[1].products)
@@ -57,8 +54,8 @@ class ProductsDetailFragment() : BaseFragment<FragmentProductDetailBinding>(
     private fun initProducts(products: List<Product>) {
         binding.apply {
             productsDetailAdapter = ProductsDetailAdapter()
-            recyclerViewProducts.adapter = productsDetailAdapter
-            recyclerViewProducts.layoutManager =
+            rvProducts.adapter = productsDetailAdapter
+            rvProducts.layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
 

@@ -2,17 +2,14 @@ package com.ns.vitrinova.ui.shops_detail
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ns.vitrinova.R
 import com.ns.vitrinova.data.model.Shop
 import com.ns.vitrinova.databinding.FragmentShopsDetailBinding
 import com.ns.vitrinova.ui.MainActivity
 import com.ns.vitrinova.ui.base.BaseFragment
-import com.ns.vitrinova.ui.discover.DiscoverViewModel
-import com.ns.vitrinova.ui.products_detail.ProductsDetailAdapter
+import com.ns.vitrinova.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +17,7 @@ class ShopsDetailFragment : BaseFragment<FragmentShopsDetailBinding>(
     FragmentShopsDetailBinding::inflate
 ) {
 
-    private val viewModel: DiscoverViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var shopsDetailAdapter: ShopsDetailAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,7 +41,7 @@ class ShopsDetailFragment : BaseFragment<FragmentShopsDetailBinding>(
         viewModel.postContent.observe(requireActivity()) {
             it.let {
                 binding.run {
-                    textTitle.text = it[4].title
+                    tvTitle.text = it[4].title
 
                 }
                 initShops(it[4].shops)
@@ -56,8 +53,8 @@ class ShopsDetailFragment : BaseFragment<FragmentShopsDetailBinding>(
     private fun initShops(shops: List<Shop>) {
         binding.apply {
             shopsDetailAdapter = ShopsDetailAdapter()
-            recyclerViewShops.adapter = shopsDetailAdapter
-            recyclerViewShops.layoutManager =
+            rvShops.adapter = shopsDetailAdapter
+            rvShops.layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
 

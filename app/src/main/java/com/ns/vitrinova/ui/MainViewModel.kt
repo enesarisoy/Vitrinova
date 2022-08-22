@@ -1,4 +1,4 @@
-package com.ns.vitrinova.ui.discover
+package com.ns.vitrinova.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,11 +11,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DiscoverViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    //TODO ViewModel yazımı
     val postContent: MutableLiveData<DiscoverModel> by lazy {
         MutableLiveData<DiscoverModel>()
     }

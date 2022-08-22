@@ -9,16 +9,16 @@ import com.ns.vitrinova.data.model.Collections
 import com.ns.vitrinova.databinding.ItemCollectionsBinding
 import com.ns.vitrinova.utils.downloadImage
 
-class CollectionsAdapter() : RecyclerView.Adapter<CollectionsAdapter.CollectionsViewHolder>() {
+class CollectionsAdapter : RecyclerView.Adapter<CollectionsAdapter.CollectionsViewHolder>() {
     inner class CollectionsViewHolder(private val binding: ItemCollectionsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(collections: Collections) {
-           binding.run {
-               imgCollection.downloadImage(collections.cover.url)
-               textTitle.text = collections.title
-               textDefinition.text = collections.definition
-           }
+            binding.run {
+                ivCollection.downloadImage(collections.cover.url)
+                tvTitle.text = collections.title
+                tvDefinition.text = collections.definition
+            }
         }
 
     }

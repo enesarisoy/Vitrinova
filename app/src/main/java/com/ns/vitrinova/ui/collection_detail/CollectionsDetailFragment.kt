@@ -2,17 +2,14 @@ package com.ns.vitrinova.ui.collection_detail
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ns.vitrinova.R
 import com.ns.vitrinova.data.model.Collections
 import com.ns.vitrinova.databinding.FragmentCollectionsDetailBinding
 import com.ns.vitrinova.ui.MainActivity
 import com.ns.vitrinova.ui.base.BaseFragment
-import com.ns.vitrinova.ui.discover.DiscoverViewModel
-import com.ns.vitrinova.ui.products_detail.ProductsDetailAdapter
+import com.ns.vitrinova.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +17,7 @@ class CollectionsDetailFragment : BaseFragment<FragmentCollectionsDetailBinding>
     FragmentCollectionsDetailBinding::inflate
 ) {
 
-    private val viewModel: DiscoverViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var collectionDetailAdapter: CollectionDetailAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +42,7 @@ class CollectionsDetailFragment : BaseFragment<FragmentCollectionsDetailBinding>
         viewModel.postContent.observe(requireActivity()) {
             it.let {
                 binding.run {
-                    textTitle.text = it[3].title
+                    tvTitle.text = it[3].title
 
                 }
                 initCollections(it[3].collections)
@@ -57,8 +54,8 @@ class CollectionsDetailFragment : BaseFragment<FragmentCollectionsDetailBinding>
     private fun initCollections(collections: List<Collections>) {
         binding.apply {
             collectionDetailAdapter = CollectionDetailAdapter()
-            recyclerViewCollections.adapter = collectionDetailAdapter
-            recyclerViewCollections.layoutManager =
+            rvCollections.adapter = collectionDetailAdapter
+            rvCollections.layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
 

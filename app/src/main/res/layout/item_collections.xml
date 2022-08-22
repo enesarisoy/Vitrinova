@@ -13,9 +13,10 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imgCollection"
+            android:id="@+id/ivCollection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/collection"
             android:scaleType="centerCrop" />
 
         <View
@@ -31,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textTitle"
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -43,7 +44,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textDefinition"
+                android:id="@+id/tvDefinition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"

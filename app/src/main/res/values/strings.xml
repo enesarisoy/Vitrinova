@@ -11,4 +11,16 @@
     <string name="editors_choice">Edıtor\'s Choıce</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_button">Back button</string>
+    <string name="category">Category</string>
+    <string name="collection">Collection</string>
+    <string name="logo">Logo</string>
+    <string name="ivshop">ivShop</string>
+    <string name="ivfeatured">ivFeatured</string>
+    <string name="ivproduct">ivProduct</string>
+    <string name="tumu">TÜMÜ</string>
+    <string name="discover">discover</string>
+    <string name="product_count">%d ÜRÜN</string>
+    <string name="old_price">%d TL</string>
+    <string name="price">%d TL</string>
 </resources>

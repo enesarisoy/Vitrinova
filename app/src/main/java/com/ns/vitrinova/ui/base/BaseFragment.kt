@@ -5,13 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
-import dagger.hilt.android.AndroidEntryPoint
 import java.lang.IllegalArgumentException
-import javax.inject.Inject
 
-//@AndroidEntryPoint
 abstract class BaseFragment<VB : ViewBinding>(
     private val bindingInflater: (inflater: LayoutInflater) -> VB
 ) : Fragment() {

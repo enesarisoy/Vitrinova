@@ -13,13 +13,14 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imgCategory"
+            android:id="@+id/ivCategory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/category"
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/textCategory"
+            android:id="@+id/tvCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"

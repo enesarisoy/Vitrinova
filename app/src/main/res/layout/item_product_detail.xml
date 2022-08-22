@@ -14,9 +14,10 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imgProduct"
+            android:id="@+id/ivProduct"
             android:layout_width="match_parent"
             android:layout_height="156dp"
+            android:contentDescription="@string/ivproduct"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,8 +32,8 @@
             app:cardBackgroundColor="@color/green"
             app:cardCornerRadius="4dp"
             app:cardElevation="2dp"
-            app:layout_constraintEnd_toEndOf="@id/imgProduct"
-            app:layout_constraintTop_toTopOf="@id/imgProduct">
+            app:layout_constraintEnd_toEndOf="@id/ivProduct"
+            app:layout_constraintTop_toTopOf="@id/ivProduct">
 
             <TextView
                 android:layout_width="match_parent"
@@ -43,11 +44,11 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/imgProduct" />
+                app:layout_constraintTop_toBottomOf="@id/ivProduct" />
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textTitle"
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -56,10 +57,10 @@
             android:maxLines="1"
             android:textColor="@color/titleColor"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/imgProduct" />
+            app:layout_constraintTop_toBottomOf="@id/ivProduct" />
 
         <TextView
-            android:id="@+id/textShop"
+            android:id="@+id/tvShop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -68,7 +69,7 @@
             android:maxLines="1"
             android:textColor="@color/hintColor"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/textTitle" />
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -77,10 +78,10 @@
             android:background="@color/pageColor"
             android:paddingHorizontal="10dp"
             android:paddingVertical="4dp"
-            app:layout_constraintTop_toBottomOf="@id/textShop">
+            app:layout_constraintTop_toBottomOf="@id/tvShop">
 
             <TextView
-                android:id="@+id/textPrice"
+                android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/titleColor"
@@ -90,7 +91,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textOldPrice"
+                android:id="@+id/tvOldPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -98,7 +99,7 @@
                 android:textSize="14sp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/textPrice"
+                app:layout_constraintStart_toEndOf="@id/tvPrice"
                 app:layout_constraintTop_toTopOf="parent" />
 
 

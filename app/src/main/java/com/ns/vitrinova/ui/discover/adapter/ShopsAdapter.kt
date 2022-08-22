@@ -1,8 +1,6 @@
 package com.ns.vitrinova.ui.discover.adapter
 
-import android.graphics.Paint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -21,16 +19,19 @@ class ShopsAdapter : RecyclerView.Adapter<ShopsAdapter.ShopsViewHolder>() {
         fun bind(shop: Shop) {
             binding.run {
                 itemView.animation =
-                    AnimationUtils.loadAnimation(itemView.context, R.anim.anim_horizontal_recyclerview)
+                    AnimationUtils.loadAnimation(
+                        itemView.context,
+                        R.anim.anim_horizontal_recyclerview
+                    )
 
-                shop.cover?.let { imgLogo.downloadImage(it.url) }
+                shop.cover?.let { ivLogo.downloadImage(it.url) }
 
-                imgShop1.downloadImage(shop.popular_products[0].images[0].url)
-                imgShop2.downloadImage(shop.popular_products[1].images[0].url)
-                imgShop3.downloadImage(shop.popular_products[2].images[0].url)
+                ivShop1.downloadImage(shop.popular_products[0].images[0].url)
+                ivShop2.downloadImage(shop.popular_products[1].images[0].url)
+                ivShop3.downloadImage(shop.popular_products[2].images[0].url)
 
-                textTitle.text = shop.name
-                textShop.text = shop.definition
+                tvTitle.text = shop.name
+                tvShop.text = shop.definition
             }
         }
 

@@ -14,25 +14,26 @@ import com.ns.vitrinova.databinding.ItemProductDetailBinding
 import com.ns.vitrinova.utils.downloadImage
 
 
-class ProductsDetailAdapter() : RecyclerView.Adapter<ProductsDetailAdapter.ProductViewHolder>() {
+class ProductsDetailAdapter : RecyclerView.Adapter<ProductsDetailAdapter.ProductViewHolder>() {
     inner class ProductViewHolder(private val binding: ItemProductDetailBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(product: Product) {
-          itemView.animation = AnimationUtils.loadAnimation(itemView.context, R.anim.anim_vertical_recyclerview)
+            itemView.animation =
+                AnimationUtils.loadAnimation(itemView.context, R.anim.anim_vertical_recyclerview)
 
             binding.run {
-                imgProduct.downloadImage(product.images[0].url)
-                if(product.cargo_time == 1)
+                ivProduct.downloadImage(product.images[0].url)
+                if (product.cargo_time == 1)
                     cardFastShipment.visibility = View.VISIBLE
 
-                textTitle.text = product.title
-                textShop.text = product.shop.name
-                textPrice.text = "${product.price} TL"
+                tvTitle.text = product.title
+                tvShop.text = product.shop.name
+                tvPrice.text = itemView.context.getString(R.string.price)
                 product.old_price?.let {
-                    textOldPrice.visibility = View.VISIBLE
-                    textOldPrice.text = "$it TL"
-                    textOldPrice.paintFlags = textOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                    tvOldPrice.visibility = View.VISIBLE
+                    tvOldPrice.text = itemView.context.getString(R.string.old_price)
+                    tvOldPrice.paintFlags = tvOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                 }
             }
         }

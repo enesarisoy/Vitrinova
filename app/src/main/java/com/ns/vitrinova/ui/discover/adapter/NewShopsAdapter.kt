@@ -11,7 +11,7 @@ import com.ns.vitrinova.data.model.Shop
 import com.ns.vitrinova.databinding.ItemNewShopsBinding
 import com.ns.vitrinova.utils.downloadImage
 
-class NewShopsAdapter() : RecyclerView.Adapter<NewShopsAdapter.NewShopsViewHolder>() {
+class NewShopsAdapter : RecyclerView.Adapter<NewShopsAdapter.NewShopsViewHolder>() {
     inner class NewShopsViewHolder(private val binding: ItemNewShopsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -19,10 +19,11 @@ class NewShopsAdapter() : RecyclerView.Adapter<NewShopsAdapter.NewShopsViewHolde
             itemView.animation =
                 AnimationUtils.loadAnimation(itemView.context, R.anim.anim_horizontal_recyclerview)
             binding.run {
-                shop.cover?.let { imgShop.downloadImage(it.url) }
-                textTitle.text = shop.name
-                textDescription.text = shop.definition
-                textProductCount.text = "${shop.product_count.toString()} ÜRÜN"
+                shop.cover?.let { ivShop.downloadImage(it.url) }
+                tvTitle.text = shop.name
+                tvDescription.text = shop.definition
+                tvProductCount.text = itemView.context.getString(R.string.product_count)
+
             }
         }
 
