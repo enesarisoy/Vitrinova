@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.ns.vitrinova"
-        minSdk 31
+        minSdk 23
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -96,8 +96,5 @@ dependencies {
 
     //Swipe Refresh Layout
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-
-    //Splash Screen
-    implementation 'androidx.core:core-splashscreen:1.0.0'
 
 }

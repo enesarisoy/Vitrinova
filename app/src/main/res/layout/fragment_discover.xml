@@ -88,6 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="12dp"
                     android:layout_marginBottom="12dp"
+                    android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="@id/featuresViewPager"
                     app:tabBackground="@drawable/tab_indicator_selector"
                     app:tabGravity="center"
