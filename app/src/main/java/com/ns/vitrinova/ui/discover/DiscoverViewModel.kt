@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.ns.vitrinova.data.model.DiscoverModel
 import com.ns.vitrinova.data.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,6 +15,7 @@ class DiscoverViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
+    //TODO ViewModel yazımı
     val postContent: MutableLiveData<DiscoverModel> by lazy {
         MutableLiveData<DiscoverModel>()
     }
@@ -23,7 +25,7 @@ class DiscoverViewModel @Inject constructor(
     }
 
     fun getContent() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val response = repository.getContent()
 
             response.data?.let {

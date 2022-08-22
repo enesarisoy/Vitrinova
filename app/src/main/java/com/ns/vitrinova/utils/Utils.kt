@@ -1,5 +1,8 @@
 package com.ns.vitrinova.utils
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import retrofit2.Response
 
 object Utils {
@@ -15,5 +18,13 @@ object Utils {
             Resource.error(e.message.toString())
         }
 
+    }
+
+    fun isNetworkAvailable(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE)
+        return if (connectivityManager is ConnectivityManager) {
+            val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+            networkInfo?.isConnected ?: false
+        } else false
     }
 }

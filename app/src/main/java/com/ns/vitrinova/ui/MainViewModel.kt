@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-//@HiltViewModel
+//@HiltViewModel    //TODO Splash HiltViewModel
 class MainViewModel: ViewModel() {
 
     private val _isLoading = MutableStateFlow(true)

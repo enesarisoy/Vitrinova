@@ -16,8 +16,6 @@ abstract class BaseFragment<VB : ViewBinding>(
     private val bindingInflater: (inflater: LayoutInflater) -> VB
 ) : Fragment() {
 
-
-
     private var _binding: VB? = null
     val binding: VB
         get() = _binding as VB
