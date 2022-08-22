@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:clickable="true"
     android:focusable="true"
-    tools:context=".ui.collection_detail.CollectionsDetailFragment">
+    tools:context=".ui.new_shops.NewShopsFragment">
 
 
     <ProgressBar
@@ -54,7 +54,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCollections"
+        android:id="@+id/recyclerViewShops"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"

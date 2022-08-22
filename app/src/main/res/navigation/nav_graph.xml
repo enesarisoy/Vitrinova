@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/discoverFragment">
 
@@ -17,6 +18,9 @@
         <action
             android:id="@+id/action_discoverFragment_to_collectionsDetailFragment"
             app:destination="@id/collectionsDetailFragment" />
+        <action
+            android:id="@+id/action_discoverFragment_to_newShopsFragment"
+            app:destination="@id/newShopsFragment" />
     </fragment>
     <fragment
         android:id="@+id/shopsDetailFragment"
@@ -40,6 +44,15 @@
         android:label="ProductsDetailFragment" >
         <action
             android:id="@+id/action_productsDetailFragment_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newShopsFragment"
+        android:name="com.ns.vitrinova.ui.new_shops.NewShopsFragment"
+        android:label="fragment_new_shops"
+        tools:layout="@layout/fragment_new_shops" >
+        <action
+            android:id="@+id/action_newShopsFragment_to_discoverFragment"
             app:destination="@id/discoverFragment" />
     </fragment>
 </navigation>

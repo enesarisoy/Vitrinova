@@ -52,7 +52,7 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
                 findNavController().navigate(R.id.action_discoverFragment_to_collectionsDetailFragment)
             }
             btnAllNewShops.setOnClickListener {
-                findNavController().navigate(R.id.action_discoverFragment_to_shopsDetailFragment)
+                findNavController().navigate(R.id.action_discoverFragment_to_newShopsFragment)
             }
             btnEditorShops.setOnClickListener {
                 findNavController().navigate(R.id.action_discoverFragment_to_shopsDetailFragment)
@@ -67,15 +67,12 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
     private fun getData() {
         if (Utils.isNetworkAvailable(requireContext())) {
             binding.run {
-                swipeRefreshLayout.isRefreshing=true
-                emptyLoadingView.visibility=View.VISIBLE
+                swipeRefreshLayout.isRefreshing = true
+                emptyLoadingView.visibility = View.VISIBLE
                 viewModel.getContent()
             }
-        }
-        else
-           Toast.makeText(activity, R.string.no_internet, Toast.LENGTH_SHORT).show()
-
-
+        } else
+            Toast.makeText(activity, R.string.no_internet, Toast.LENGTH_SHORT).show()
     }
 
     private fun listenDiscoverData() {

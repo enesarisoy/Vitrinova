@@ -9,4 +9,6 @@
     <string name="categories">Categorıes</string>
     <string name="collections">Collectıons</string>
     <string name="editors_choice">Edıtor\'s Choıce</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

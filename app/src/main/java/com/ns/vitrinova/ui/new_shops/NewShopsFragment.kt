@@ -1,27 +1,31 @@
-package com.ns.vitrinova.ui.products_detail
+package com.ns.vitrinova.ui.new_shops
 
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ns.vitrinova.R
 import com.ns.vitrinova.data.model.Product
-import com.ns.vitrinova.databinding.FragmentProductDetailBinding
+import com.ns.vitrinova.data.model.Shop
+import com.ns.vitrinova.databinding.FragmentNewShopsBinding
+import com.ns.vitrinova.databinding.ItemNewShopsBinding
 import com.ns.vitrinova.ui.MainActivity
 import com.ns.vitrinova.ui.base.BaseFragment
 import com.ns.vitrinova.ui.discover.DiscoverViewModel
-import com.ns.vitrinova.ui.discover.adapter.ProductsAdapter
+import com.ns.vitrinova.ui.products_detail.ProductsDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProductsDetailFragment() : BaseFragment<FragmentProductDetailBinding>(
-    FragmentProductDetailBinding::inflate
+class NewShopsFragment : BaseFragment<FragmentNewShopsBinding>(
+    FragmentNewShopsBinding::inflate
 ) {
 
     private val viewModel: DiscoverViewModel by viewModels()
-    private lateinit var productsDetailAdapter: ProductsDetailAdapter
+    private lateinit var newShopsAdapter: NewShopsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,7 +33,6 @@ class ProductsDetailFragment() : BaseFragment<FragmentProductDetailBinding>(
         backPressed()
         initData()
     }
-
 
     private fun backPressed() {
         binding.apply {
@@ -45,26 +48,24 @@ class ProductsDetailFragment() : BaseFragment<FragmentProductDetailBinding>(
         viewModel.postContent.observe(requireActivity()) {
             it.let {
                 binding.run {
-                    textTitle.text = it[1].title
+                    textTitle.text = it[5].title
 
                 }
-                initProducts(it[1].products)
+                initShops(it[5].shops)
                 binding.progressBar.visibility = View.GONE
             }
         }
     }
 
-    private fun initProducts(products: List<Product>) {
+    private fun initShops(shop: List<Shop>) {
         binding.apply {
-            productsDetailAdapter = ProductsDetailAdapter()
-            recyclerViewProducts.adapter = productsDetailAdapter
-            recyclerViewProducts.layoutManager =
+            newShopsAdapter = NewShopsAdapter()
+            recyclerViewShops.adapter = newShopsAdapter
+            recyclerViewShops.layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
 
-        productsDetailAdapter.differ.submitList(products)
+        newShopsAdapter.differ.submitList(shop)
 
     }
-
-
 }
