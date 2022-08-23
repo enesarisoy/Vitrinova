@@ -29,7 +29,7 @@ class NewShopsAdapter : RecyclerView.Adapter<NewShopsAdapter.NewShopViewHolder>(
                 }
                 tvTitle.text = shop.name
                 tvDescription.text = shop.definition
-                tvProductCount.text = itemView.context.getString(R.string.product_count)
+                tvProductCount.text = itemView.context.getString(R.string.product_count, shop.product_count)
             }
         }
 

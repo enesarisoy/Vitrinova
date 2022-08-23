@@ -1,9 +1,15 @@
 package com.ns.vitrinova.ui.discover
 
+import android.app.Activity
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,14 +18,17 @@ import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ns.vitrinova.R
 import com.ns.vitrinova.data.model.*
+import com.ns.vitrinova.data.model.Collections
 import com.ns.vitrinova.databinding.FragmentDiscoverBinding
 import com.ns.vitrinova.ui.MainViewModel
 import com.ns.vitrinova.ui.base.BaseFragment
 import com.ns.vitrinova.ui.custom.FeaturedViewPagerTransformer
 import com.ns.vitrinova.ui.discover.adapter.*
+import com.ns.vitrinova.utils.Constants.REQUEST_CODE_STT
 import com.ns.vitrinova.utils.Utils
 import com.ns.vitrinova.utils.downloadImage
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
@@ -35,11 +44,66 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(
     private lateinit var newShopsAdapter: NewShopsAdapter
     private lateinit var viewPagerAdapter: ViewPagerAdapter
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initClick()
+        initSpeech()
         getData()
         listenDiscoverData()
+
+    }
+
+    private fun initSpeech() {
+        binding.btnVoice.setOnClickListener {
+            askSpeechInput()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            REQUEST_CODE_STT -> {
+                if (resultCode == Activity.RESULT_OK && data != null) {
+                    val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                    if (!result.isNullOrEmpty()) {
+                        val recognizedText = result[0]
+                        binding.etSearch.setText(recognizedText)
+                    }
+                }
+            }
+        }
+    }
+
+   /* var response = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
+        if (result.resultCode == REQUEST_CODE_STT) {
+            val resulte = result.data?.getStringArrayExtra(RecognizerIntent.EXTRA_RESULTS)
+            if (!resulte.isNullOrEmpty()) {
+                val recognizedText = resulte[0]
+                binding.etSearch.setText(recognizedText)
+            }
+        }
+    }*/
+
+    private fun askSpeechInput() {
+        val sttIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        sttIntent.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        )
+        sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+        sttIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak now!")
+        try {
+            startActivityForResult(sttIntent, REQUEST_CODE_STT)
+//            response.launch(sttIntent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(
+                requireView().context,
+                "Error!!",
+                Toast.LENGTH_LONG
+            ).show()
+        }
     }
 
     private fun initClick() {

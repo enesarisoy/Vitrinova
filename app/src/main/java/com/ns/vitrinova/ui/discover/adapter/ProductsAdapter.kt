@@ -28,7 +28,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
                 product.old_price?.let {
                     tvOldPrice.run {
                         visibility = View.VISIBLE
-                        text = itemView.context.getText(R.string.old_price)
+                        text = itemView.context.getString(R.string.old_price, product.old_price)
                         paintFlags = tvPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     }
                 }

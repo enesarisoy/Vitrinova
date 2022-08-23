@@ -29,10 +29,10 @@ class ProductsDetailAdapter : RecyclerView.Adapter<ProductsDetailAdapter.Product
 
                 tvTitle.text = product.title
                 tvShop.text = product.shop.name
-                tvPrice.text = itemView.context.getString(R.string.price)
+                tvPrice.text = itemView.context.getString(R.string.price, product.price)
                 product.old_price?.let {
                     tvOldPrice.visibility = View.VISIBLE
-                    tvOldPrice.text = itemView.context.getString(R.string.old_price)
+                    tvOldPrice.text = itemView.context.getString(R.string.old_price, product.old_price)
                     tvOldPrice.paintFlags = tvOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                 }
             }
